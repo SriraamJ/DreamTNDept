@@ -74,3 +74,17 @@ for (let i = 0; i < whishlistBtns.length; i++) {
     toggleElem(this);
   });
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const list = document.querySelector(".testimonial-list");
+  let currentIndex = 0;
+  const testimonials = document.querySelectorAll(".testimonial-item");
+  const interval = 3000;
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % testimonials.length;
+    list.style.transform = `translateY(-${currentIndex * 300}px)`; // Match CSS height
+    list.style.transition = "transform 0.5s ease-in-out";
+  }, interval);
+});
